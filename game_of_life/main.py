@@ -3,7 +3,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #    file: life.py
 #    date: 2017-07-12
-#  author: paul.dautry
+#  author: koromodako
 # purpose:
 #       Un petit jeu de la vie pour délirer
 # license:

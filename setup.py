@@ -15,8 +15,8 @@ setup(
     version=__version__,
     description='',
     author='Paul Dautry',
-    author_email='paul.dautry@gmail.com',
-    url='https://github.com/pdautry/game_of_life',
+    author_email='koromodako@gmail.com',
+    url='https://github.com/koromodako/game_of_life',
     # package files
     packages=find_packages(str(HERE)),
     install_requires=requirements(),
