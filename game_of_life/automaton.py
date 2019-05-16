@@ -22,6 +22,7 @@ class Automaton:
         '''
         self.current_state = None
         self.rules = None
+        self.step = 0
 
     def _step_forward(self, n=1):
         '''[summary]
@@ -34,23 +35,30 @@ class Automaton:
             self.current_state = next_state
         return True
 
-    def run(self, step_by_step, add_grid, delay):
+    def _print_state(self, add_grid):
+        print(f'=========================================== step n°{self.step}')
+        print(self.current_state.stringify(add_grid))
+
+    def run(self, final_state_only, step_by_step, stop_after, add_grid, delay):
         '''[summary]
         '''
         if self.current_state is None:
             return
-
+        self.step = 0
         while True:
-            print(self.current_state.stringify(add_grid))
-
+            if not final_state_only:
+                self._print_state(add_grid)
             if not self._step_forward():
                 break
-
+            self.step += 1
+            if stop_after and self.step >= stop_after:
+                break
             if step_by_step:
                 if input('next step? [Y/n]: ') == 'n':
                     break
             else:
                 sleep(delay)
+        self._print_state(add_grid)
 
     def load(self, fpath):
         yml = YAML(typ='safe')

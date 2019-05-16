@@ -22,7 +22,9 @@ def parse_args():
     '''[summary]
     '''
     parser = ArgumentParser(description="Runs Conway's Game Of Life on given configuration file.")
+    parser.add_argument('--final-state-only', action='store_true', help="Display final state only.")
     parser.add_argument('--step-by-step', '-s', action='store_true', help="Step-by-step execution.")
+    parser.add_argument('--stop-after', type=int, metavar='N', help="Stop after N iterations.")
     parser.add_argument('--add-grid', '-g', action='store_true', help="Draw a grid.")
     parser.add_argument('--delay', '-d', type=float, default=0.5, help="Delay between two steps.")
     parser.add_argument('config', type=Path, help="Configuration file.")
@@ -35,7 +37,9 @@ def main():
     args = parse_args()
     lm = Automaton()
     lm.load(args.config)
-    lm.run(args.step_by_step,
+    lm.run(args.final_state_only,
+           args.step_by_step,
+           args.stop_after,
            args.add_grid,
            args.delay)
 #===============================================================================
