@@ -14,7 +14,7 @@ setup(
     name='game_of_life',
     version=__version__,
     description='',
-    author='Paul Dautry',
+    author='Koromodako',
     author_email='koromodako@gmail.com',
     url='https://github.com/koromodako/game_of_life',
     # package files
